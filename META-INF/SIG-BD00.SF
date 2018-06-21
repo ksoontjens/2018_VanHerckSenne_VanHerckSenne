@@ -1,0 +1,38 @@
+Signature-Version: 1.0
+Created-By: 1.6.0_16 (Sun Microsystems Inc.)
+BDJ-Signature-Version: 1.0
+SHA1-Digest-Manifest: Y77zNMQzaIIhz73vLhCLPEBtv6w=
+
+Name: hellotvxlet/HelloTVXlet.class
+SHA1-Digest: ia8eiQx1a2FHtkIdkvZ9z6T6Y4M=
+
+Name: hellotvxlet/HelloTVXlet$1.class
+SHA1-Digest: jL4rl+dtvgbj4VErj8qjkXfGCe4=
+
+Name: hellotvxlet/AIPaddle.class
+SHA1-Digest: LYr5klnKHtzwcRkLqo68UkOKE/M=
+
+Name: hellotvxlet/MijnComponent.class
+SHA1-Digest: V9n2kLIVmAm4cRKUF3riMppgzkc=
+
+Name: hellotvxlet/GamePlay.class
+SHA1-Digest: iKPm6tO/hXhjlrjeqYaw5UHkBAQ=
+
+Name: hellotvxlet/PlayerPaddle.class
+SHA1-Digest: 7+vizgfZdGPQWPuxLuPzz7ZK5TM=
+
+Name: hellotvxlet/Paddle.class
+SHA1-Digest: BaHuqpAc6V0lfj7le/D2CaMz/+g=
+
+Name: hellotvxlet/bluray.HelloTVXlet.perm
+SHA1-Digest: 84ZO/rYCyy0JStmaLbg1GDVEFhQ=
+
+Name: hellotvxlet/Ball.class
+SHA1-Digest: sDZydcqMrsQvDQjMLUbxNwYchvg=
+
+Name: hellotvxlet/MyTimerTask.class
+SHA1-Digest: SDUx5t0x3HOctEvDUgbhESCV9nE=
+
+Name: hellotvxlet/Hscene.class
+SHA1-Digest: LmbZQlc9y+j4gd6olUL08q4B1tA=
+

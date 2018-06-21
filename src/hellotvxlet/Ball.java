@@ -18,9 +18,23 @@ public class Ball {
     public Ball(){
         x = 350;
         y = 250;
-        xVel = -2;
-        yVel = 1;
+        xVel = getRandomSpeed() * getRandomDirection();
+        yVel = getRandomSpeed() * getRandomDirection();
         
+    }
+    
+    public double getRandomSpeed(){
+        return (Math.random() *3 + 2);
+    
+    }
+    
+    public int getRandomDirection(){
+        int rand = (int)(Math.random() * 2 );
+                if (rand == 1)
+                    return 1;
+                else
+                    return -1;
+    
     }
     
     public void draw(Graphics g){
@@ -37,7 +51,7 @@ public class Ball {
                 
         
         }
-        else if (x >= 550){
+        else if (x >= 670){
             if (y >= p2.getY() && y <= p2.getY() + 80)
                 xVel = -xVel;
         

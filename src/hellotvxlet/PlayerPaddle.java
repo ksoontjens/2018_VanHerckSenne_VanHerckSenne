@@ -20,7 +20,7 @@ public class PlayerPaddle implements Paddle {
         if(player == 1)
             x = 20;
         else
-           x =  780;
+           x =  680;
     
     }
     

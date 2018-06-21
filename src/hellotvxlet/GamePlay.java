@@ -25,13 +25,18 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
     
     Thread thread;
     PlayerPaddle p1;
-    AIPaddle p2;
+    PlayerPaddle p2;
     Ball b1;
+    
+    boolean gameStarted;
     
     
     public GamePlay(){
         
         this.setBounds(0, 0, 720, 576); //(X,Y, Width, Height)
+        
+        
+        gameStarted = false;
         
         UserEventRepository repo = new UserEventRepository("repo");
         repo.addAllArrowKeys();
@@ -41,8 +46,9 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
         manager.addUserEventListener(this, repo);
         
         p1 = new PlayerPaddle(1);
-        p2 = new AIPaddle(2, b1);
+        p2 = new PlayerPaddle(2);
         b1 = new Ball();
+        
         
         thread = new Thread(this);
         thread.start();
@@ -56,14 +62,25 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
         
         if(b1.getX()< -10 || b1.getX() > 730 ) {
             g.setColor(Color.red);
-            g.drawString("Game Over", 350, 250);
+            g.drawString("Game Over", 330, 250);
+            
         }
         else{
         p1.draw(g);
-        b1.draw(g);
         p2.draw(g);
+        b1.draw(g);
+        }
+        
+        if(!gameStarted){
+            g.setColor(Color.red);
+            g.drawString("MHP Tennis", 300, 100);
+            g.drawString("Druk op de'1' toets om te starten.", 250, 130);
+            g.drawString("P1 Controls: Up toets = omhoog,  Down toets = omlaag", 110, 180);
+            g.drawString("P2 Controls: Left toets = omhoog,  Right toets = omlaag", 110, 200);
         
         }
+        
+
     
     }
     
@@ -76,10 +93,14 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
     public void run() {
         for(;;){
             
+            if(gameStarted){
             p1.move();
-            //p2.move();
+            p2.move();
             b1.move();
             b1.checkPaddleCollision(p1, p2);
+            }
+            
+            
             
             
             
@@ -108,6 +129,21 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
                         p1.setDownAccel(true);
         
                     }
+                    
+                    else if(e.getCode() == HRcEvent.VK_LEFT){
+                        p2.setUpAccel(true);
+        
+                    }
+                    else if (e.getCode() == HRcEvent.VK_RIGHT) {
+                        p2.setDownAccel(true);
+        
+                    }
+                    
+                    else if(e.getCode() == HRcEvent.VK_1){
+                        gameStarted = true;
+                    
+                    }
+
         
                   }
         if (e.getType() == HRcEvent.KEY_RELEASED){
@@ -116,6 +152,14 @@ public class GamePlay extends HComponent implements Runnable, UserEventListener 
         }
                      else if (e.getCode() == HRcEvent.VK_DOWN) {
                          p1.setDownAccel(false);
+        
+        }
+                     
+                     else if(e.getCode() == HRcEvent.VK_LEFT){
+                         p2.setUpAccel(false);
+        }
+                     else if (e.getCode() == HRcEvent.VK_RIGHT) {
+                         p2.setDownAccel(false);
         
         }
         
